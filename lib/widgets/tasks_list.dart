@@ -3,6 +3,30 @@ import 'package:todoey_flutter/widgets/task_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey_flutter/models/task_data.dart';
 
+import '../models/task.dart';
+
+class TasksList extends StatelessWidget {
+  List<Task> tasks = [
+    Task(name: 'Buy milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy bread'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return TaskTile(
+          taskTitle: tasks[index].name,
+          isChecked: tasks[index].isDone,
+        );
+      },
+      itemCount: tasks.length,
+    );
+  }
+}
+
+/*
 class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,3 +52,4 @@ class TasksList extends StatelessWidget {
     );
   }
 }
+*/
